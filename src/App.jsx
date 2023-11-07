@@ -1,3 +1,4 @@
+//App.jsx
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import {collection,getDocs,addDoc,updateDoc,doc,} from "firebase/firestore";
@@ -8,6 +9,8 @@ import { CustomListTable } from "./costumListTable";
 import { CustomListModal } from "./costumListModal";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { TabBar } from "./tabBar";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "./action";
 
 
 function App() {
@@ -34,20 +37,33 @@ function App() {
     setNewrating("");
   };
 
+  const dispatch = useDispatch();
+
+  // Access state
+  const data = useSelector((state) => state.myReducer.data);
+  console.log("data",data);
+
+  // Dispatch your fetchData action
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch]);
 
   const createList = async () => {
     if (newmark.trim() === "" || newprice.trim() === "" || newyear.trim() === "" || newrating.trim() === "") {
       return;
     }
-
+  
     await addDoc(listCollectionRef, { mark: newmark, price: newprice, year: newyear, rating: newrating });
     setNewmark("");
     setNewprice("");
     setNewyear("");
     setNewrating("");
     closeModal();
-  };
 
+    // Refresh the list
+    dispatch(fetchData());
+  };
+  
   const updateListItem = async () => {
     if (selectedItemId) {
       // Check if all required fields are defined and not empty
@@ -59,22 +75,24 @@ function App() {
         setNewyear("");
         setNewrating("");
         closeModal();
+  
+        // Refresh the list
+        dispatch(fetchData());
       } else {
         console.error("Invalid data. Update canceled.");
       }
     }
   };
-  
 
-  useEffect(() => {
-    const getlist = async () => {
-      const data = await getDocs(listCollectionRef);
-      const listData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      setList(listData);
-    };
+  // useEffect(() => {
+  //   const getlist = async () => {
+  //     const data = await getDocs(listCollectionRef);
+  //     const listData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  //     setList(listData);
+  //   };
 
-    getlist();
-  }, [listCollectionRef]);
+  //   getlist();
+  // }, [listCollectionRef]);
 
   return (
     <Router>
@@ -103,7 +121,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<CustomListTable
-            list={list}
+            data={data}
             setSelectedItemId={setSelectedItemId}
             setNewmark={setNewmark}
             setNewprice={setNewprice}
@@ -112,7 +130,7 @@ function App() {
             openModal={openModal}
           />} />
          <Route path="/chart" element={<Charts
-            list={list} />
+            data={data} />
           }/>
         </Routes>
       </CustomListContainer>

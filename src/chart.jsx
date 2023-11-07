@@ -6,27 +6,27 @@ import Chart from 'chart.js/auto';
 // Register the CategoryScale
 Chart.register(CategoryScale);
 
-export const Charts = ({ list }) =>  {
-  const data = {
-    labels: list.map((item) => item.mark),
+export const Charts = ({ data }) =>  {
+  const list = {
+    labels: data.map((item) => item.mark),
     datasets: [
       {
         label: "Price",
-        data: list.map((item) => item.price),
+        data: data.map((item) => item.price),
         backgroundColor: "rgba(75, 192, 192, 0.2)",
         borderColor: "rgba(75, 192, 192, 1)",
         borderWidth: 1,
       },
       {
         label: "Year",
-        data: list.map((item) => item.year),
+        data: data.map((item) => item.year),
         backgroundColor: "rgba(255, 159, 64, 0.2)",
         borderColor: "rgba(255, 159, 64, 1)",
         borderWidth: 1,
       },
       {
         label: "Rating",
-        data: list.map((item) => item.rating),
+        data: data.map((item) => item.rating),
         backgroundColor: "rgba(153, 102, 255, 0.2)",
         borderColor: "rgba(153, 102, 255, 1)",
         borderWidth: 1,
@@ -37,7 +37,7 @@ export const Charts = ({ list }) =>  {
   return (
     <div>
       <h2>Chart</h2>
-      <Line data={data} />
+      <Line data={list} />
     </div>
   );
 }

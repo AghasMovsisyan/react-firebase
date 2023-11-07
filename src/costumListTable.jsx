@@ -3,8 +3,7 @@ import { CustomTable, TableCell, TableHeader, TableRow } from "./customListStyle
 import "./App.css";
 
 
-
-export const CustomListTable = ({ list, setSelectedItemId, setNewmark, setNewprice, setNewyear, setNewrating, openModal }) => {
+export const CustomListTable = ({ data, setSelectedItemId, setNewmark, setNewprice, setNewyear, setNewrating, openModal }) => {
     return (
       <div>
       <h2>List</h2>
@@ -19,7 +18,7 @@ export const CustomListTable = ({ list, setSelectedItemId, setNewmark, setNewpri
           </TableRow>
         </thead>
         <tbody>
-          {list.map((item) => (
+          {data.map((item) => (
             <TableRow
               key={item.id}
               onClick={() => {
@@ -30,7 +29,6 @@ export const CustomListTable = ({ list, setSelectedItemId, setNewmark, setNewpri
                 setNewrating(item.rating);
                 openModal();
               }}
-              className="row-hover"
             >
               <TableCell>{item.id}</TableCell>
               <TableCell>{item.mark}</TableCell>
