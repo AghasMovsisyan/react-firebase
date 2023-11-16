@@ -11,5 +11,6 @@ const myReducer = createSlice({
   },
 });
 
+
 export const { updateData } = myReducer.actions;
 export default myReducer.reducer;

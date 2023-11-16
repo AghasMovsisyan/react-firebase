@@ -1,6 +1,6 @@
 import React from "react";
-import { CustomTable, TableCell, TableHeader, TableRow } from "./customListStyled";
-import "./App.css";
+import { CustomTable, TableCell, TableHeader, TableRow } from "../../styles/customListStyled";
+import "../../App.css";
 
 
 export const CustomListTable = ({ data, setSelectedItemId, setNewmark, setNewprice, setNewyear, setNewrating, openModal }) => {

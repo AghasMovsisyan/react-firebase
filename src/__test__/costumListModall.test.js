@@ -1,14 +1,15 @@
+//costumListModall.test.js
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { CustomListModal } from './costumListModal';
+import { CustomListModal } from '../components/CostumListModal/costumListModal';
 
 describe('CustomListModal', () => {
   // Mock functions to pass as props
   const closeModal = jest.fn();
   const updateListItem = jest.fn();
   const createList = jest.fn();
-  
+
   const renderComponent = (props) => {
     return render(
       <CustomListModal

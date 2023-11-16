@@ -1,10 +1,9 @@
+//tabBar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 
 
 export const TabBar = ({openModal}) => {
-
-
     return (
       <div>
       <Link to="/" className="tab-button">
@@ -19,8 +18,6 @@ export const TabBar = ({openModal}) => {
       <hr></hr>
       </div>  
     )
-
-
 }
 
 export default TabBar;

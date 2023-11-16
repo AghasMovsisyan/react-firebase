@@ -1,7 +1,7 @@
 // actions.js
 import { getDocs, collection } from "@firebase/firestore";
-import { updateData } from './myReducer';
-import { db } from "./firebase";
+import { updateData } from '../reducers/myReducer';
+import { db } from "../../services/firebase";
 
 export const fetchData = () => {
   return async (dispatch) => {

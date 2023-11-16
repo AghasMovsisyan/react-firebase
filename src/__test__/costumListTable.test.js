@@ -1,7 +1,8 @@
+//costumListTable.test.js
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { CustomListTable } from './costumListTable';
+import { CustomListTable } from '../components/CustomListTable/costumListTable';
 
 describe('CustomListTable', () => {
   // Mock functions to pass as props
@@ -15,7 +16,6 @@ describe('CustomListTable', () => {
   const data = [
     { id: 1, mark: 'A', price: 100, year: 2022, rating: 4.5 },
     { id: 2, mark: 'B', price: 150, year: 2021, rating: 3.8 },
-    // Add more test data as needed 
   ];
 
   it('renders table rows correctly', () => {

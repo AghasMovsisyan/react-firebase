@@ -1,16 +1,16 @@
 //App.jsx
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import {collection,getDocs,addDoc,updateDoc,doc,} from "firebase/firestore";
-import { db } from "./firebase";
-import {CustomListContainer,} from "./customListStyled";
-import Charts from "./chart";
-import { CustomListTable } from "./costumListTable";
-import { CustomListModal } from "./costumListModal";
+import { collection,addDoc,updateDoc,doc } from "firebase/firestore";
+import { db } from "./services/firebase";
+import { CustomListContainer } from "./styles/customListStyled";
+import Charts from "./components/chart/chart";
+import { CustomListTable } from "./components/CustomListTable/costumListTable";
+import { CustomListModal } from "./components/CostumListModal/costumListModal";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { TabBar } from "./tabBar";
+import { TabBar } from "./components/tab/tabBar";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "./action";
+import { fetchData } from "./redux/actions/action";
 
 
 function App() {
@@ -20,9 +20,7 @@ function App() {
   const [newyear, setNewyear] = useState("");
   const [newrating, setNewrating] = useState("");
   const [selectedItemId, setSelectedItemId] = useState(null);
-  const [list, setList] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -84,15 +82,6 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   const getlist = async () => {
-  //     const data = await getDocs(listCollectionRef);
-  //     const listData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-  //     setList(listData);
-  //   };
-
-  //   getlist();
-  // }, [listCollectionRef]);
 
   return (
     <Router>
