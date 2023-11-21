@@ -35,10 +35,17 @@ export const Charts = ({ data }) =>  {
     ],
   };
 
+  const chartStyles = {
+    width: '1600px',
+    height: '800px',
+  };
+
   return (
     <div>
       <h2>Chart</h2>
-      <Line data={list} />
+      <div style={chartStyles}>
+        <Line data={list} />
+      </div>
     </div>
   );
 }

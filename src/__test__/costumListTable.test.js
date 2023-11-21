@@ -7,10 +7,10 @@ import { CustomListTable } from '../components/CustomListTable/costumListTable';
 describe('CustomListTable', () => {
   // Mock functions to pass as props
   const setSelectedItemId = jest.fn();
-  const setNewmark = jest.fn();
-  const setNewprice = jest.fn();
-  const setNewyear = jest.fn();
-  const setNewrating = jest.fn();
+  const setNewMark = jest.fn();
+  const setNewPrice = jest.fn();
+  const setNewYear = jest.fn();
+  const setNewRating = jest.fn();
   const openModal = jest.fn();
 
   const data = [
@@ -23,17 +23,17 @@ describe('CustomListTable', () => {
       <CustomListTable
         data={data}
         setSelectedItemId={setSelectedItemId}
-        setNewmark={setNewmark}
-        setNewprice={setNewprice}
-        setNewyear={setNewyear}
-        setNewrating={setNewrating}
+        setNewMark={setNewMark}
+        setNewPrice={setNewPrice}
+        setNewYear={setNewYear}
+        setNewRating={setNewRating}
         openModal={openModal}
       />
     );
 
     // Check if table rows are rendered with correct data
     data.forEach((item) => {
-      const row = getByText(item.mark); // Assuming 'mark' is unique in your test data
+      const row = getByText(item.mark); // Assuming 'mark' is unique in test data
       expect(row).toBeInTheDocument();
     });
   });
@@ -43,10 +43,10 @@ describe('CustomListTable', () => {
       <CustomListTable
         data={data}
         setSelectedItemId={setSelectedItemId}
-        setNewmark={setNewmark}
-        setNewprice={setNewprice}
-        setNewyear={setNewyear}
-        setNewrating={setNewrating}
+        setNewMark={setNewMark}
+        setNewPrice={setNewPrice}
+        setNewYear={setNewYear}
+        setNewRating={setNewRating}
         openModal={openModal}
       />
     );
@@ -56,10 +56,10 @@ describe('CustomListTable', () => {
 
     // Check if the functions are called with the correct arguments
     expect(setSelectedItemId).toHaveBeenCalledWith(1);
-    expect(setNewmark).toHaveBeenCalledWith('A');
-    expect(setNewprice).toHaveBeenCalledWith(100);
-    expect(setNewyear).toHaveBeenCalledWith(2022);
-    expect(setNewrating).toHaveBeenCalledWith(4.5);
+    expect(setNewMark).toHaveBeenCalledWith('A');
+    expect(setNewPrice).toHaveBeenCalledWith(100);
+    expect(setNewYear).toHaveBeenCalledWith(2022);
+    expect(setNewRating).toHaveBeenCalledWith(4.5);
     expect(openModal).toHaveBeenCalled();
   });
 });

@@ -1,9 +1,10 @@
+//costumLisTable.jsx
 import React from "react";
 import { CustomTable, TableCell, TableHeader, TableRow } from "../../styles/customListStyled";
 import "../../App.css";
 
 
-export const CustomListTable = ({ data, setSelectedItemId, setNewmark, setNewprice, setNewyear, setNewrating, openModal }) => {
+export const CustomListTable = ({ data, setSelectedItemId, setNewMark, setNewPrice, setNewYear, setNewRating, openModal }) => {
     return (
       <div>
       <h2>List</h2>
@@ -23,10 +24,10 @@ export const CustomListTable = ({ data, setSelectedItemId, setNewmark, setNewpri
               key={item.id}
               onClick={() => {
                 setSelectedItemId(item.id);
-                setNewmark(item.mark);
-                setNewprice(item.price);
-                setNewyear(item.year);
-                setNewrating(item.rating);
+                setNewMark(item.mark);
+                setNewPrice(item.price);
+                setNewYear(item.year);
+                setNewRating(item.rating);
                 openModal();
               }}
             >

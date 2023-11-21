@@ -1,4 +1,4 @@
-//customListStyled
+//customListStyled.js
 import styled from 'styled-components';
 
 

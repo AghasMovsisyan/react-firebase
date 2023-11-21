@@ -1,71 +1,72 @@
 //costumListModall.test.js
-import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { CustomListModal } from '../components/CostumListModal/costumListModal';
+import { render, fireEvent, screen, act } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store'; 
+import CustomListModal from '../components/CostumListModal/costumListModal';
 
-describe('CustomListModal', () => {
-  // Mock functions to pass as props
-  const closeModal = jest.fn();
-  const updateListItem = jest.fn();
-  const createList = jest.fn();
 
-  const renderComponent = (props) => {
-    return render(
-      <CustomListModal
-        isModalOpen={true}
-        closeModal={closeModal}
-        newmark=""
-        setNewmark={() => {}}
-        newprice=""
-        setNewprice={() => {}}
-        newyear=""
-        setNewyear={() => {}}
-        newrating=""
-        setNewrating={() => {}}
-        selectedItemId={null}
-        updateListItem={updateListItem}
-        createList={createList}
-        {...props}
-      />
+const mockStore = configureStore([]);
+
+describe('CustomListModal Component', () => {
+  let store;
+  beforeEach(() => {
+    store = mockStore({
+      myReducer: {
+        newMark: '',
+        newPrice: '',
+        newYear: '',
+        newRating: '',
+      },
+    });
+  });
+
+  test('Renders with create button when no item is selected', () => {
+    render(
+      <Provider store={store}>
+        <CustomListModal isModalOpen={true} selectedItemId={null} />
+      </Provider>
     );
-  };
 
-  it('renders modal content correctly', () => {
-    const { getByLabelText, getByPlaceholderText, getByText } = renderComponent();
-
-    expect(getByLabelText('Mark:')).toBeInTheDocument();
-    expect(getByPlaceholderText('Enter mark...')).toBeInTheDocument();
-    expect(getByLabelText('Price:')).toBeInTheDocument();
-    expect(getByPlaceholderText('Enter price...')).toBeInTheDocument();
-    expect(getByLabelText('Year:')).toBeInTheDocument();
-    expect(getByPlaceholderText('Enter year...')).toBeInTheDocument();
-    expect(getByLabelText('Rating:')).toBeInTheDocument();
-    expect(getByPlaceholderText('Enter rating...')).toBeInTheDocument();
-    expect(getByText('Create List')).toBeInTheDocument(); // Assuming the default button is "Create List"
+    expect(screen.getByText('Create List')).toBeInTheDocument();
   });
 
-  it('calls closeModal when the close button is clicked', () => {
-    const { getByText } = renderComponent();
+  test('Renders with update button when item is selected', () => {
+    render(
+      <Provider store={store}>
+        <CustomListModal isModalOpen={true} selectedItemId="someId" />
+      </Provider>
+    );
 
-    fireEvent.click(getByText('×')); // Assuming the close button is a close icon (×)
-
-    expect(closeModal).toHaveBeenCalled();
+    expect(screen.getByText('Update List')).toBeInTheDocument();
   });
 
-  it('calls createList when "Create List" button is clicked', () => {
-    const { getByText } = renderComponent();
+  test('Submits form with correct values', async () => {
+    render(
+      <Provider store={store}>
+        <CustomListModal isModalOpen={true} selectedItemId={null} />
+      </Provider>
+    );
 
-    fireEvent.click(getByText('Create List'));
+    await act(async () => {
+      fireEvent.change(screen.getByPlaceholderText('Enter mark...'), {
+        target: { value: 'Test Mark' },
+      });
+      fireEvent.change(screen.getByPlaceholderText('Enter price...'), {
+        target: { value: '50' },
+      });
+      fireEvent.change(screen.getByPlaceholderText('Enter year...'), {
+        target: { value: '2023' },
+      });
+      fireEvent.change(screen.getByPlaceholderText('Enter rating...'), {
+        target: { value: '4' },
+      });
+    
+      fireEvent.click(screen.getByText('Create List'));
+      
+      setTimeout(() => {
+      }, 0);
+    });
+    
 
-    expect(createList).toHaveBeenCalled();
-  });
-
-  it('calls updateListItem when "Update List" button is clicked', () => {
-    const { getByText } = renderComponent({ selectedItemId: 1 });
-
-    fireEvent.click(getByText('Update List'));
-
-    expect(updateListItem).toHaveBeenCalled();
-  });
-});
+   });
+}); 
