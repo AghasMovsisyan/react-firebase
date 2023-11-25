@@ -33,7 +33,7 @@ describe('CustomListTable', () => {
 
     // Check if table rows are rendered with correct data
     data.forEach((item) => {
-      const row = getByText(item.mark); // Assuming 'mark' is unique in test data
+      const row = getByText(item.mark); //  
       expect(row).toBeInTheDocument();
     });
   });
@@ -54,6 +54,7 @@ describe('CustomListTable', () => {
     // Simulate a click on the first table row
     fireEvent.click(getByText('A')); // Assuming 'A' is the value of the first item's 'mark' property
 
+    
     // Check if the functions are called with the correct arguments
     expect(setSelectedItemId).toHaveBeenCalledWith(1);
     expect(setNewMark).toHaveBeenCalledWith('A');

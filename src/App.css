@@ -34,3 +34,31 @@
   background-color: #000000;
   border-bottom: 2px solid #fff;
 }
+
+
+/* Pagination */
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0px 10px;
+  justify-content: right;
+  cursor: pointer;
+  align-items: center;
+}
+
+/* Pagination item */
+.page-item {
+  margin: 0 4px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+}
+
+/* Active pagination item */
+.active {
+  background-color: rgb(5, 42, 255);
+  color: white;
+}
+
+
