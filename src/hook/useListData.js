@@ -1,8 +1,7 @@
 //userListData.js
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../redux/actions/action";
-import {  setIsModalOpen } from "../redux/reducers/myReducer";
+import { fetchData, setIsModalOpen } from "../redux/actions/action";
 
 export const useListData = () => {
   const dispatch = useDispatch();

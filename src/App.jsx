@@ -1,14 +1,14 @@
 import React from "react";
 import "./App.css";
-import { CustomListContainer } from "./styles/customListStyled";
-import Charts from "./components/chart/chart";
-import { CustomListTable } from "./components/CustomListTable/costumListTable";
-import { CustomListModal } from "./components/CostumListModal/costumListModal";
+import { CustomListContainer } from "./components/CustomListTable/customListStyled";
+import Charts from "./components/Chart/Charts";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { TabBar } from "./components/tab/tabBar";
+import { TabBar } from "./components/TabBar/TabBar";
 import { useDispatch } from "react-redux";
 import { useListData } from "./hook/useListData";
-import { setNewMark, setNewPrice, setNewRating, setNewYear, setSelectedItemId } from "./redux/reducers/myReducer";
+import { setData, setNewMark, setNewPrice, setNewRating, setNewYear, setSelectedItemId } from "./redux/actions/action";
+import { CustomListTable } from "./components/CustomListTable/CustomListTable"
+import CustomListModal from "./components/CustomListModal/CustomListModal";
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
     openModal,
   } = useListData(); 
   const dispatch = useDispatch();
+
   return (
     <Router>
       <CustomListContainer>
@@ -37,10 +38,11 @@ function App() {
               setNewPrice={(value) => dispatch(setNewPrice(value))}
               setNewYear={(value) => dispatch(setNewYear(value))}
               setNewRating={(value) => dispatch(setNewRating(value))}
+              setData={(value) => dispatch(setData(value))}
               openModal={openModal}
             />}
           />
-          <Route path="/chart" element={<Charts data={data} />} />
+          <Route path="/chart"  element={<Charts data={data} />} />
         </Routes>
       </CustomListContainer>
     </Router>

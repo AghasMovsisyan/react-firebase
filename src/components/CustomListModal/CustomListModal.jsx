@@ -1,4 +1,4 @@
-//costumListModal.jsx
+//CustumListModal.jsx
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -11,11 +11,10 @@ import {
   InputLabel,
   Modal,
   ModalContent,
-} from '../../styles/costumListModalStyled';
-import { setIsModalOpen, setNewMark, setNewPrice, setNewRating, setNewYear, setSelectedItemId } from '../../redux/reducers/myReducer';
+} from './customListModalStyled';
 import { useDispatch, useSelector } from 'react-redux';
 import { db } from '../../services/firebase';
-import { fetchData } from '../../redux/actions/action';
+import { fetchData, setIsModalOpen, setNewMark, setNewPrice, setNewRating, setNewYear, setSelectedItemId } from '../../redux/actions/action';
 import { listCollectionRef } from '../../services/db';
 import { addDoc, doc, updateDoc } from 'firebase/firestore';
 
@@ -34,7 +33,7 @@ export const CustomListModal = ({
     price: newprice || '',
     year: newyear || '',
     rating: newrating || '',
-  };
+  };  
 
   const validationSchema = Yup.object().shape({
     mark: Yup.string().required('Mark is required'),
@@ -55,8 +54,7 @@ export const CustomListModal = ({
   };
 
   const createList = async (values) => {
-    console.log("values in createList function",values)
-
+    
     await addDoc(listCollectionRef, { mark: values.mark, price: values.price, year: values.year, rating: values.rating });
     dispatch(setNewMark(""));
     dispatch(setNewPrice(""));
@@ -86,10 +84,8 @@ export const CustomListModal = ({
   const handleSubmit = (values) => {
     if (selectedItemId) {
       updateListItem(values);
-      console.log("values to update",values);
     } else {
       createList(values);
-      console.log("values",values);
     }
     closeModal();
   };

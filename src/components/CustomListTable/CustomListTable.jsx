@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { CustomTable, TableCell, TableHeader, TableRow } from "../../styles/customListStyled";
+import { CustomTable, TableCell, TableHeader, TableRow } from "./customListStyled";
 import "../../App.css";
-import Pagination from "../pagination/pagination";
+import Pagination from "../Pagination/Pagination";
 
 export const CustomListTable = ({
   data,
@@ -12,11 +12,11 @@ export const CustomListTable = ({
   setNewRating,
   openModal,
 }) => {
+
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
-
   };
 
   const handleItemsPerPageChange = (e) => {
@@ -26,14 +26,9 @@ export const CustomListTable = ({
   };
 
   const pageCount = Math.ceil(data.length / itemsPerPage);
-  console.log("pageCount",pageCount);
-
   const indexOfLastItem = (currentPage + 1) * itemsPerPage;
-  console.log("indexOfLastItem",indexOfLastItem);
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  console.log("indexOfFirstItem",indexOfFirstItem);
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
-  console.log("currentItems",currentItems);
 
   return (
     <div>
@@ -80,3 +75,5 @@ export const CustomListTable = ({
     </div>
   );
 };
+
+export default CustomListTable;

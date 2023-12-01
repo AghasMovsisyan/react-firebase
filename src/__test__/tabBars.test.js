@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import TabBar from '../components/tab/tabBar';
+import TabBar from '../components/TabBar/TabBar';
 
 describe('TabBar', () => {
   it('renders tab buttons and create list button', () => {

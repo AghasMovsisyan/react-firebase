@@ -1,8 +1,9 @@
-//chart.jsx
+//Charts.jsx
 import React from "react";
 import { Line } from "react-chartjs-2";
 import { CategoryScale } from 'chart.js';
 import Chart from 'chart.js/auto';
+import { ChartStyles } from "./customChartsStyled";
 
 // Register the CategoryScale
 Chart.register(CategoryScale);
@@ -35,17 +36,13 @@ export const Charts = ({ data }) =>  {
     ],
   };
 
-  const chartStyles = {
-    width: '1600px',
-    height: '800px',
-  };
 
   return (
     <div>
       <h2>Chart</h2>
-      <div style={chartStyles}>
+      <ChartStyles>
         <Line data={list} />
-      </div>
+      </ChartStyles>
     </div>
   );
 }

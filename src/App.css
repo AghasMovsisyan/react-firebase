@@ -1,23 +1,5 @@
 /* App.css */
 
-/* Style the "Create List" button outside the modal */
-.create-list-button-outside-modal {
-  background-color: #0074cc;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  float: right;
-  margin-top: -5px;
-
-  &:hover {
-    background-color: #005ba6;
-  }
-}
-
 /* Style for the  tabBar container */
 .tab-button {
   text-transform: uppercase;

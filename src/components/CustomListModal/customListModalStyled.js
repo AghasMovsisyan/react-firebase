@@ -1,4 +1,4 @@
-//costumListModalStyled.js
+//customListModalStyled.js
 import styled from "styled-components";
 
 

@@ -1,6 +1,7 @@
-//tabBar.jsx
+//TabBar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import { CreateList } from "./customBottomsStyled";
 
 
 export const TabBar = ({openModal}) => {
@@ -12,9 +13,9 @@ export const TabBar = ({openModal}) => {
       <Link to="/chart" className="tab-button">
         Chart
       </Link>
-      <button className="create-list-button-outside-modal" onClick={openModal}>
-          Create List
-      </button>
+      <CreateList onClick={openModal}>
+        Create List
+      </CreateList>
       <hr></hr>
       </div>  
     )

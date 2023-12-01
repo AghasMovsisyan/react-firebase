@@ -1,7 +1,7 @@
-//pagination.jsx
+//Pagination.jsx
 import React from "react";
 import ReactPaginate from "react-paginate";
-import { CustomSelect, ItemsPerPage, PaginationContainer, PaginationInfo } from "../../styles/customPagination";
+import { CustomSelect, ItemsPerPage, PaginationContainer, PaginationInfo } from "./customPagination";
 import "../../App.css";
 
 
@@ -26,6 +26,7 @@ const Pagination = ({
         Page {currentPage + 1} of {pageCount}
       </PaginationInfo>
       <ReactPaginate
+        
         previousLabel={"Previous"}
         nextLabel={"Next"}
         pageClassName={"page-item"}

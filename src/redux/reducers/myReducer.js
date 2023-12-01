@@ -1,11 +1,12 @@
-// myReducer.js
+//myReducer.js
 import {   UPDATE_DATA,
   SET_NEW_MARK,
   SET_NEW_PRICE,
   SET_NEW_YEAR,
   SET_NEW_RATING,
   SET_SELECTED_ITEM_ID,
-  SET_IS_MODAL_OPEN } from '../actions/actionTypes';
+  SET_IS_MODAL_OPEN, 
+  SET_DATA} from '../actions/actionTypes';
 
 const initialState = {
   data: [],
@@ -17,46 +18,14 @@ const initialState = {
   isModalOpen: false,
 };
 
-
-export const updateData = (data) => ({
-  type: UPDATE_DATA,
-  payload: data,
-});
-
-
-export const setNewMark = (mark) => ({
-  type: SET_NEW_MARK,
-  payload: mark,
-});
-
-export const setNewPrice = (price) => ({
-  type: SET_NEW_PRICE,
-  payload: price,
-});
-
-export const setNewYear = (year) => ({
-  type: SET_NEW_YEAR,
-  payload: year,
-});
-
-export const setNewRating = (rating) => ({
-  type: SET_NEW_RATING,
-  payload: rating,
-});
-
-export const setSelectedItemId = (itemId) => ({
-  type: SET_SELECTED_ITEM_ID,
-  payload: itemId,
-});
-
-export const setIsModalOpen = (isOpen) => ({
-  type: SET_IS_MODAL_OPEN,
-  payload: isOpen,
-});
-
-
 const myReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_DATA:
+      return {
+        ...state,
+        data: action.payload
+      };
+
     case UPDATE_DATA:
       return {  
         ...state,
