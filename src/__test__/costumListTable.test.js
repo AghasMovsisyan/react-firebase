@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { CustomListTable } from '../components/CustomListTable/costumListTable';
+import { CustomListTable } from '../components/ListTable/costumListTable';
 
 describe('CustomListTable', () => {
   // Mock functions to pass as props

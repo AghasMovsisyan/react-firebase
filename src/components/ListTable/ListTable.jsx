@@ -1,6 +1,6 @@
 //CustomLisTable.jsx
 import React, { useState } from "react";
-import { CreateList, CustomTable, ListName, TableCell, TableHeader, TableRow } from "./customListStyled";
+import { CreateList, CustomTable, ListName, TableCell, TableHeader, TableRow } from "./ListTableStyled";
 import "../../App.css";
 import Pagination from "../Pagination/Pagination";
 import { FormattedMessage } from "react-intl";

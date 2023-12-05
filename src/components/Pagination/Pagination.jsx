@@ -1,7 +1,7 @@
 //Pagination.jsx
 import React from "react";
 import ReactPaginate from "react-paginate";
-import { CustomSelect, ItemsPerPage, PaginationContainer, PaginationInfo } from "./customPagination";
+import { CustomSelect, ItemsPerPage, PaginationContainer, PaginationInfo } from "./PaginationStyled";
 import "../../App.css";
 import { FormattedMessage } from "react-intl";
 

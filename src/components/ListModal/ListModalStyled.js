@@ -44,11 +44,10 @@ export const InputLabel = styled.label`
 
 export const InputField = styled.input`
   padding: 10px;
-  border: 1px solid ${({ hasError }) => (hasError ? 'red' : '#ccc')}; /* Change border color to red when hasError is true */
+  border: 1px solid ${({ hasError }) => (hasError ? 'red' : '#ccc')};
   border-radius: 5px;
   width: 100%;
   font-size: 16px;
-  
 `;
 
 export const CreateUpdateButton = styled.button`

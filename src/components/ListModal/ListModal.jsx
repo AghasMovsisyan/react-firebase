@@ -11,7 +11,7 @@ import {
   InputLabel,
   Modal,
   ModalContent,
-} from './customListModalStyled';
+} from './ListModalStyled';
 import { useDispatch, useSelector } from 'react-redux';
 import { db } from '../../services/firebase';
 import { fetchData, setIsModalOpen, setNewMark, setNewPrice, setNewRating, setNewYear, setSelectedItemId } from '../../redux/actions/action';
@@ -80,11 +80,11 @@ export const CustomListModal = ({
     }
   };
 
-  const intl = useIntl();
-  const placeholderMessageMark = intl.formatMessage({ id: 'enter.mark', defaultMessage: 'Enter mark...' });
-  const placeholderMessagePrice = intl.formatMessage({ id: 'enter.price', defaultMessage: 'Enter price...' });
-  const placeholderMessageYear = intl.formatMessage({ id: 'enter.year', defaultMessage: 'Enter year...' });
-  const placeholderMessageRating = intl.formatMessage({ id: 'enter.rating', defaultMessage: 'Enter rating...' });
+  const {formatMessage} = useIntl();
+  const placeholderMessageMark = formatMessage({ id: 'enter.mark', defaultMessage: 'Enter mark...' });
+  const placeholderMessagePrice = formatMessage({ id: 'enter.price', defaultMessage: 'Enter price...' });
+  const placeholderMessageYear = formatMessage({ id: 'enter.year', defaultMessage: 'Enter year...' });
+  const placeholderMessageRating = formatMessage({ id: 'enter.rating', defaultMessage: 'Enter rating...' });
   
   const handleSubmit = (values) => {
     if (selectedItemId) {
@@ -116,7 +116,6 @@ export const CustomListModal = ({
                     id="mark-input"
                     name="mark"
                     placeholder={placeholderMessageMark}
-                    hasError={errors.mark && touched.mark} 
                   />
                   <ErrorMessage name="mark" component={ErrorMessageStyled} />
                 </InputContainer>
@@ -129,7 +128,6 @@ export const CustomListModal = ({
                     id="price-input"
                     name="price"
                     placeholder={placeholderMessagePrice}
-                    hasError={errors.mark && touched.mark} 
                   />
                   <ErrorMessage name="price" component={ErrorMessageStyled} />
                 </InputContainer>
@@ -142,7 +140,6 @@ export const CustomListModal = ({
                     id="year-input"
                     name="year"
                     placeholder={placeholderMessageYear}
-                    hasError={errors.mark && touched.mark} 
                   />
                   <ErrorMessage name="year" component={ErrorMessageStyled} />
                 </InputContainer>
@@ -155,7 +152,6 @@ export const CustomListModal = ({
                     id="rating-input"
                     name="rating"
                     placeholder={placeholderMessageRating}
-                    hasError={errors.mark && touched.mark} 
                   />
                   <ErrorMessage name="rating" component={ErrorMessageStyled} />
                 </InputContainer>

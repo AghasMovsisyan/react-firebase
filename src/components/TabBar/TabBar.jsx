@@ -1,7 +1,7 @@
 //TabBar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { Dropbtn, Dropdown, DropdownButton, DropdownContainer, DropdownContent, Line } from "./customTabBarStyled";
+import { Dropbtn, Dropdown, DropdownButton, DropdownContainer, DropdownContent, Line } from "./TabBarStyled";
 import { FormattedMessage } from "react-intl";
 
 export const TabBar = ({ setLocale }) => {
@@ -38,3 +38,4 @@ export const TabBar = ({ setLocale }) => {
 };
 
 export default TabBar;
+
