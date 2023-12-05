@@ -1,0 +1,32 @@
+{
+    "tab.language": "Հայերեն",
+    "tab.list": "Ցուցակ",
+    "tab.chart": "Ուղիղացում",
+    "table.createList": "Գրանցել Ցուցակ",
+    "table.List": "Ցուցակ",
+    "table.chars": "Ցուցակ",
+    "table.id": "Id",
+    "table.mark": "Նշագծել",
+    "table.price": "Գին",
+    "table.year": "Տարիք",
+    "table.rating": "Վարկանիշ",
+    "pagination.rows": "Տողեր մեկ էջի համար",
+    "pagination.current": "Էջ {currentPage} է {pageCount}-ից",
+    "pagination.previous": "Նախորդ",
+    "pagination.next": "Հաջորդը",
+    "mark.label": "Նշագծել:",
+    "price.label": "Գին:",
+    "year.label": "Տարիք:",
+    "rating.label": "Վարկանիշ:",
+    "enter.mark": "Մուտքագրեք նշանը...",
+    "enter.price": "Մուտքագրեք գինը․․․",
+    "enter.year": "Մուտքագրեք տարիքը...",
+    "enter.rating": "Մուտքագրեք վարկանիշ․․․",
+    "update.listButton": "Թարմացնել Ցուցակ",
+    "create.listButton": "Գրանցել Ցուցակ",
+    "price.labelChart": "Գին",
+    "year.labelChart": "Տարիք",
+    "rating.labelChart": "Վարկանիշ"
+
+}
+ 
