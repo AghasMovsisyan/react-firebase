@@ -17,6 +17,7 @@ import { db } from '../../services/firebase';
 import { fetchData, setIsModalOpen, setNewMark, setNewPrice, setNewRating, setNewYear, setSelectedItemId } from '../../redux/actions/action';
 import { listCollectionRef } from '../../services/db';
 import { addDoc, doc, updateDoc } from 'firebase/firestore';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 export const CustomListModal = ({
   isModalOpen,
@@ -79,8 +80,12 @@ export const CustomListModal = ({
     }
   };
 
-
-
+  const intl = useIntl();
+  const placeholderMessageMark = intl.formatMessage({ id: 'enter.mark', defaultMessage: 'Enter mark...' });
+  const placeholderMessagePrice = intl.formatMessage({ id: 'enter.price', defaultMessage: 'Enter price...' });
+  const placeholderMessageYear = intl.formatMessage({ id: 'enter.year', defaultMessage: 'Enter year...' });
+  const placeholderMessageRating = intl.formatMessage({ id: 'enter.rating', defaultMessage: 'Enter rating...' });
+  
   const handleSubmit = (values) => {
     if (selectedItemId) {
       updateListItem(values);
@@ -103,52 +108,65 @@ export const CustomListModal = ({
             {({ errors, touched }) => (
               <Form>
                 <InputContainer>
-                  <InputLabel htmlFor="mark-input">Mark:</InputLabel>
+                  <InputLabel htmlFor="mark-input">
+                    <FormattedMessage id="mark.label" defaultMessage="Mark:" />
+                  </InputLabel>
                   <Field
                     as={InputField}
                     id="mark-input"
                     name="mark"
-                    placeholder="Enter mark..."
+                    placeholder={placeholderMessageMark}
                     hasError={errors.mark && touched.mark} 
                   />
                   <ErrorMessage name="mark" component={ErrorMessageStyled} />
                 </InputContainer>
                 <InputContainer>
-                  <InputLabel htmlFor="price-input">Price:</InputLabel>
+                  <InputLabel htmlFor="price-input">
+                    <FormattedMessage id="price.label" defaultMessage="Price:" />
+                  </InputLabel>
                   <Field
                     as={InputField}
                     id="price-input"
                     name="price"
-                    placeholder="Enter price..."
+                    placeholder={placeholderMessagePrice}
                     hasError={errors.mark && touched.mark} 
                   />
                   <ErrorMessage name="price" component={ErrorMessageStyled} />
                 </InputContainer>
                 <InputContainer>
-                  <InputLabel htmlFor="year-input">Year:</InputLabel>
+                  <InputLabel htmlFor="year-input">
+                    <FormattedMessage id="year.label" defaultMessage="Price:"/>
+                  </InputLabel>
                   <Field
                     as={InputField}
                     id="year-input"
                     name="year"
-                    placeholder="Enter year..."
+                    placeholder={placeholderMessageYear}
                     hasError={errors.mark && touched.mark} 
                   />
                   <ErrorMessage name="year" component={ErrorMessageStyled} />
                 </InputContainer>
                 <InputContainer>
-                  <InputLabel htmlFor="rating-input">Rating:</InputLabel>
+                  <InputLabel htmlFor="rating-input">
+                    <FormattedMessage id="rating.label" defaultMessage="Rating:"/>
+                  </InputLabel>
                   <Field
                     as={InputField}
                     id="rating-input"
                     name="rating"
-                    placeholder="Enter rating..."
+                    placeholder={placeholderMessageRating}
                     hasError={errors.mark && touched.mark} 
                   />
                   <ErrorMessage name="rating" component={ErrorMessageStyled} />
                 </InputContainer>
                 <CreateUpdateButton type="submit">
-                  {selectedItemId ? 'Update List' : 'Create List'}
+                  {selectedItemId ? (
+                    <FormattedMessage id="update.listButton" defaultMessage="Update List" />
+                  ) : (
+                    <FormattedMessage id="create.listButton" defaultMessage="Create List" />
+                  )}
                 </CreateUpdateButton>
+
               </Form>
             )}
           </Formik>

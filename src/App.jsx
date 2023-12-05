@@ -1,4 +1,5 @@
-import React from "react";
+//App.jsx
+import React, { useState } from "react";
 import "./App.css";
 import { CustomListContainer } from "./components/CustomListTable/customListStyled";
 import Charts from "./components/Chart/Charts";
@@ -9,6 +10,9 @@ import { useListData } from "./hook/useListData";
 import { setData, setNewMark, setNewPrice, setNewRating, setNewYear, setSelectedItemId } from "./redux/actions/action";
 import { CustomListTable } from "./components/CustomListTable/CustomListTable"
 import CustomListModal from "./components/CustomListModal/CustomListModal";
+import messages_en from "./translations/en.json"
+import messages_arm from "./translations/arm.json"
+import { IntlProvider } from "react-intl";
 
 
 function App() {
@@ -20,10 +24,18 @@ function App() {
   } = useListData(); 
   const dispatch = useDispatch();
 
+  const [locale, setLocale] = useState('en'); // Default language
+
+  const messages = {
+    en: messages_en,
+    arm: messages_arm,
+  };
+
   return (
+    <IntlProvider  locale={locale} messages={messages[locale]}>
     <Router>
       <CustomListContainer>
-        <TabBar openModal={openModal} />
+        <TabBar openModal={openModal} setLocale={setLocale}/>
         <CustomListModal
           isModalOpen={isModalOpen}
           selectedItemId={selectedItemId}
@@ -46,6 +58,7 @@ function App() {
         </Routes>
       </CustomListContainer>
     </Router>
+  </IntlProvider>
   );
 }
 

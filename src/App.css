@@ -10,6 +10,7 @@
   font-size: 17px;
   cursor: pointer;
   transition: background-color 0.3s;
+  height: 38px;
 }
 
 .tab-button.active {
@@ -42,5 +43,3 @@
   background-color: rgb(5, 42, 255);
   color: white;
 }
-
-

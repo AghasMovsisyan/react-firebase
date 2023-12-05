@@ -1,0 +1,32 @@
+{   
+    "tab.language": "English",
+    "tab.list": "List",
+    "tab.chart": "Chart",
+    "table.createList": "Create List",
+    "table.List": "List",
+    "table.chars": "Chart",
+    "table.id": "Id",
+    "table.mark": "Mark",
+    "table.price": "Price",
+    "table.year": "Year",
+    "table.rating": "Rating",
+    "pagination.rows": "Rows per page:",
+    "pagination.current": "Page {currentPage} of {pageCount}",
+    "pagination.previous": "Previous",
+    "pagination.next": "Next",
+    "mark.label": "Mark:",
+    "price.label": "Price:",
+    "year.label": "Year:",
+    "rating.label": "Rating:",
+    "enter.mark": "Enter mark...",
+    "enter.price": "Enter price․․․",
+    "enter.year": "Enter year...",
+    "enter.rating": "Enter rating...",
+    "update.listButton": "Update List",
+    "create.listButton": "Create List",
+    "price.labelChart": "Price",
+    "year.labelChart": "Year",
+    "rating.labelChart": "Rating"
+    
+}
+  

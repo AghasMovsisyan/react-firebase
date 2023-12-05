@@ -1,7 +1,9 @@
+//CustomLisTable.jsx
 import React, { useState } from "react";
-import { CustomTable, TableCell, TableHeader, TableRow } from "./customListStyled";
+import { CreateList, CustomTable, ListName, TableCell, TableHeader, TableRow } from "./customListStyled";
 import "../../App.css";
 import Pagination from "../Pagination/Pagination";
+import { FormattedMessage } from "react-intl";
 
 export const CustomListTable = ({
   data,
@@ -32,15 +34,30 @@ export const CustomListTable = ({
 
   return (
     <div>
-      <h2>List</h2>
+      <CreateList onClick={openModal}>
+        <FormattedMessage id="table.createList" defaultMessage="Create List" />
+      </CreateList>
+      <ListName>
+        <FormattedMessage id="table.List" defaultMessage="List" />
+      </ListName>
       <CustomTable>
         <thead>
           <TableRow>
-            <TableHeader>ID</TableHeader>
-            <TableHeader>Mark</TableHeader>
-            <TableHeader>Price</TableHeader>
-            <TableHeader>Year</TableHeader>
-            <TableHeader>Rating</TableHeader>
+            <TableHeader>
+              <FormattedMessage id="table.id" defaultMessage="Id"></FormattedMessage>
+            </TableHeader>
+            <TableHeader>
+              <FormattedMessage id="table.mark" defaultMessage="Mark"></FormattedMessage>
+            </TableHeader>
+            <TableHeader>
+              <FormattedMessage id="table.price" defaultMessage="Price"></FormattedMessage>
+            </TableHeader>
+            <TableHeader>
+              <FormattedMessage id="table.year" defaultMessage="Year"></FormattedMessage>
+            </TableHeader>
+            <TableHeader>
+              <FormattedMessage id="table.rating" defaultMessage="Rating"></FormattedMessage>
+            </TableHeader>
           </TableRow>
         </thead>
         <tbody>

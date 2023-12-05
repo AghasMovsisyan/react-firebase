@@ -61,6 +61,7 @@ export const CreateUpdateButton = styled.button`
   cursor: pointer;
   transition: background-color 0.3s ease;
   float: left;
+  height: 38px;
 
   &:hover {
     background-color: #005ba6;

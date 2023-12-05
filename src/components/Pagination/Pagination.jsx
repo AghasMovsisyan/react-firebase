@@ -3,6 +3,7 @@ import React from "react";
 import ReactPaginate from "react-paginate";
 import { CustomSelect, ItemsPerPage, PaginationContainer, PaginationInfo } from "./customPagination";
 import "../../App.css";
+import { FormattedMessage } from "react-intl";
 
 
 const Pagination = ({
@@ -15,7 +16,7 @@ const Pagination = ({
   return (
     <PaginationContainer>
       <ItemsPerPage>
-        Rows per page:
+        <FormattedMessage id="pagination.rows" defaultMessage="Rows per page:"></FormattedMessage>
         <CustomSelect value={itemsPerPage} onChange={handleItemsPerPageChange}>
           <option value={5}>5</option>
           <option value={10}>10</option>
@@ -23,12 +24,16 @@ const Pagination = ({
         </CustomSelect>
       </ItemsPerPage>
       <PaginationInfo>
-        Page {currentPage + 1} of {pageCount}
+        <FormattedMessage id="pagination.current" defaultMessage="Page {currentPage} of {pageCount}"
+          values={{
+            currentPage: currentPage + 1,
+            pageCount: pageCount,
+          }}>
+        </FormattedMessage>
       </PaginationInfo>
       <ReactPaginate
-        
-        previousLabel={"Previous"}
-        nextLabel={"Next"}
+        previousLabel={<FormattedMessage id="pagination.previous" defaultMessage="Previous"></FormattedMessage>}
+        nextLabel={<FormattedMessage id="pagination.next" defaultMessage="Next"></FormattedMessage>}
         pageClassName={"page-item"}
         breakLabel={"..."}
         pageCount={pageCount}
