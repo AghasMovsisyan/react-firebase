@@ -1,10 +1,14 @@
 //Pagination.jsx
-import React from "react";
-import ReactPaginate from "react-paginate";
-import { CustomSelect, ItemsPerPage, PaginationContainer, PaginationInfo } from "./PaginationStyled";
-import "../../App.css";
-import { FormattedMessage } from "react-intl";
-
+import React from 'react';
+import ReactPaginate from 'react-paginate';
+import {
+  CustomSelect,
+  ItemsPerPage,
+  PaginationContainer,
+  PaginationInfo,
+} from './PaginationStyled';
+import '../../App.css';
+import { FormattedMessage } from 'react-intl';
 
 const Pagination = ({
   itemsPerPage,
@@ -16,7 +20,10 @@ const Pagination = ({
   return (
     <PaginationContainer>
       <ItemsPerPage>
-        <FormattedMessage id="pagination.rows" defaultMessage="Rows per page:"></FormattedMessage>
+        <FormattedMessage
+          id="pagination.rows"
+          defaultMessage="Rows per page:"
+        ></FormattedMessage>
         <CustomSelect value={itemsPerPage} onChange={handleItemsPerPageChange}>
           <option value={5}>5</option>
           <option value={10}>10</option>
@@ -24,25 +31,37 @@ const Pagination = ({
         </CustomSelect>
       </ItemsPerPage>
       <PaginationInfo>
-        <FormattedMessage id="pagination.current" defaultMessage="Page {currentPage} of {pageCount}"
+        <FormattedMessage
+          id="pagination.current"
+          defaultMessage="Page {currentPage} of {pageCount}"
           values={{
             currentPage: currentPage + 1,
             pageCount: pageCount,
-          }}>
-        </FormattedMessage>
+          }}
+        ></FormattedMessage>
       </PaginationInfo>
       <ReactPaginate
-        previousLabel={<FormattedMessage id="pagination.previous" defaultMessage="Previous"></FormattedMessage>}
-        nextLabel={<FormattedMessage id="pagination.next" defaultMessage="Next"></FormattedMessage>}
-        pageClassName={"page-item"}
-        breakLabel={"..."}
+        previousLabel={
+          <FormattedMessage
+            id="pagination.previous"
+            defaultMessage="Previous"
+          ></FormattedMessage>
+        }
+        nextLabel={
+          <FormattedMessage
+            id="pagination.next"
+            defaultMessage="Next"
+          ></FormattedMessage>
+        }
+        pageClassName={'page-item'}
+        breakLabel={'...'}
         pageCount={pageCount}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
-        containerClassName={"pagination"}
-        activeClassName={"active"}
+        containerClassName={'pagination'}
+        activeClassName={'active'}
         onPageChange={handlePageChange}
-        forcePage={currentPage} 
+        forcePage={currentPage}
       />
     </PaginationContainer>
   );

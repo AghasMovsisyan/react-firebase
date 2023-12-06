@@ -1,6 +1,5 @@
 //customChartsStyled.js
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 export const ChartStyles = styled.div`
   width: 1600px;

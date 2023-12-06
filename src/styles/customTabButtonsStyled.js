@@ -1,9 +1,8 @@
 //costumTabButtonsStyled.js
-import styled from "styled-components";
-import {Link} from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-
-export const TabButton = styled(Link) `
+export const TabButton = styled(Link)`
   text-transform: uppercase;
   color: #201e1e; /* Text color */
   text-decoration: none;

@@ -1,9 +1,8 @@
 //costumListModall.test.js
 import { render, fireEvent, screen, act } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store'; 
+import configureStore from 'redux-mock-store';
 import CustomListModal from '../components/CostumListModal/costumListModal';
-
 
 const mockStore = configureStore([]);
 
@@ -24,7 +23,7 @@ describe('CustomListModal Component', () => {
     render(
       <Provider store={store}>
         <CustomListModal isModalOpen={true} selectedItemId={null} />
-      </Provider>
+      </Provider>,
     );
 
     expect(screen.getByText('Create List')).toBeInTheDocument();
@@ -34,7 +33,7 @@ describe('CustomListModal Component', () => {
     render(
       <Provider store={store}>
         <CustomListModal isModalOpen={true} selectedItemId="someId" />
-      </Provider>
+      </Provider>,
     );
 
     expect(screen.getByText('Update List')).toBeInTheDocument();
@@ -44,7 +43,7 @@ describe('CustomListModal Component', () => {
     render(
       <Provider store={store}>
         <CustomListModal isModalOpen={true} selectedItemId={null} />
-      </Provider>
+      </Provider>,
     );
 
     await act(async () => {
@@ -60,13 +59,10 @@ describe('CustomListModal Component', () => {
       fireEvent.change(screen.getByPlaceholderText('Enter rating...'), {
         target: { value: '4' },
       });
-    
-      fireEvent.click(screen.getByText('Create List'));
-      
-      setTimeout(() => {
-      }, 0);
-    });
-    
 
-   });
-}); 
+      fireEvent.click(screen.getByText('Create List'));
+
+      setTimeout(() => {}, 0);
+    });
+  });
+});

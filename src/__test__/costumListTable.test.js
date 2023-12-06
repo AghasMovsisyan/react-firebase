@@ -28,12 +28,12 @@ describe('CustomListTable', () => {
         setNewYear={setNewYear}
         setNewRating={setNewRating}
         openModal={openModal}
-      />
+      />,
     );
 
     // Check if table rows are rendered with correct data
     data.forEach((item) => {
-      const row = getByText(item.mark); //  
+      const row = getByText(item.mark); //
       expect(row).toBeInTheDocument();
     });
   });
@@ -48,13 +48,12 @@ describe('CustomListTable', () => {
         setNewYear={setNewYear}
         setNewRating={setNewRating}
         openModal={openModal}
-      />
+      />,
     );
 
     // Simulate a click on the first table row
     fireEvent.click(getByText('A')); // Assuming 'A' is the value of the first item's 'mark' property
 
-    
     // Check if the functions are called with the correct arguments
     expect(setSelectedItemId).toHaveBeenCalledWith(1);
     expect(setNewMark).toHaveBeenCalledWith('A');

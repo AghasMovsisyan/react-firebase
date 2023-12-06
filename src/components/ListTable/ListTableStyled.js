@@ -1,7 +1,6 @@
 //customListStyled.js
 import styled from 'styled-components';
 
-
 export const CustomListContainer = styled.div`
   padding: 20px;
 `;
@@ -15,7 +14,6 @@ export const TableHeader = styled.th`
   background-color: #f0f0f0;
   padding: 10px;
   height: 25px;
-
 `;
 
 export const TableRow = styled.tr`
@@ -29,14 +27,10 @@ export const TableCell = styled.td`
   text-align: center;
 `;
 
-export const TabButons = styled.div`
-`;
-
+export const TabButons = styled.div``;
 
 export const ListName = styled.h2`
   height: 28px;
-
-
 `;
 
 export const CreateList = styled.button`

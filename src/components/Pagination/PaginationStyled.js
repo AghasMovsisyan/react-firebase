@@ -1,6 +1,5 @@
 //customPagination.js
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 export const PagniationInfo = styled.div`
   display: flex;
@@ -27,7 +26,6 @@ export const ItemsPerPage = styled.div`
   align-items: center;
 `;
 
-
 export const CustomSelect = styled.select`
   padding: 4px;
   border: 1px solid #bdbdbd;
@@ -37,7 +35,9 @@ export const CustomSelect = styled.select`
   color: #333;
   margin-left: 2px;
   outline: none;
-  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition:
+    border-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
 
   &:hover {
     border-color: #9e9e9e;

@@ -14,16 +14,20 @@ import {
 } from './ListModalStyled';
 import { useDispatch, useSelector } from 'react-redux';
 import { db } from '../../services/firebase';
-import { fetchData, setIsModalOpen, setNewMark, setNewPrice, setNewRating, setNewYear, setSelectedItemId } from '../../redux/actions/action';
+import {
+  fetchData,
+  setIsModalOpen,
+  setNewMark,
+  setNewPrice,
+  setNewRating,
+  setNewYear,
+  setSelectedItemId,
+} from '../../redux/actions/action';
 import { listCollectionRef } from '../../services/db';
 import { addDoc, doc, updateDoc } from 'firebase/firestore';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-export const CustomListModal = ({
-  isModalOpen,
-  selectedItemId,
-}) => {
-
+export const CustomListModal = ({ isModalOpen, selectedItemId }) => {
   const newmark = useSelector((state) => state.myReducer.newMark);
   const newprice = useSelector((state) => state.myReducer.newPrice);
   const newyear = useSelector((state) => state.myReducer.newYear);
@@ -34,7 +38,7 @@ export const CustomListModal = ({
     price: newprice || '',
     year: newyear || '',
     rating: newrating || '',
-  };  
+  };
 
   const validationSchema = Yup.object().shape({
     mark: Yup.string().required('Mark is required'),
@@ -48,44 +52,63 @@ export const CustomListModal = ({
   const closeModal = () => {
     dispatch(setIsModalOpen(false));
     dispatch(setSelectedItemId(null));
-    dispatch(setNewMark(""));
-    dispatch(setNewPrice(""));
-    dispatch(setNewYear(""));
-    dispatch(setNewRating(""));
+    dispatch(setNewMark(''));
+    dispatch(setNewPrice(''));
+    dispatch(setNewYear(''));
+    dispatch(setNewRating(''));
   };
 
   const createList = async (values) => {
-    
-    await addDoc(listCollectionRef, { mark: values.mark, price: values.price, year: values.year, rating: values.rating });
-    dispatch(setNewMark(""));
-    dispatch(setNewPrice(""));
-    dispatch(setNewYear(""));
-    dispatch(setNewRating(""));
+    await addDoc(listCollectionRef, {
+      mark: values.mark,
+      price: values.price,
+      year: values.year,
+      rating: values.rating,
+    });
+    dispatch(setNewMark(''));
+    dispatch(setNewPrice(''));
+    dispatch(setNewYear(''));
+    dispatch(setNewRating(''));
     closeModal();
     dispatch(fetchData());
   };
 
   const updateListItem = async (values) => {
     if (selectedItemId) {
-     
-    const listDoc = doc(db, "list", selectedItemId);
-    await updateDoc(listDoc, { mark: values.mark, price: values.price, year: values.year, rating: values.rating });
-    dispatch(setNewMark(""));
-    dispatch(setNewPrice(""));
-    dispatch(setNewYear(""));
-    dispatch(setNewRating(""));
-    closeModal();
-    dispatch(fetchData());
-  
+      const listDoc = doc(db, 'list', selectedItemId);
+      await updateDoc(listDoc, {
+        mark: values.mark,
+        price: values.price,
+        year: values.year,
+        rating: values.rating,
+      });
+      dispatch(setNewMark(''));
+      dispatch(setNewPrice(''));
+      dispatch(setNewYear(''));
+      dispatch(setNewRating(''));
+      closeModal();
+      dispatch(fetchData());
     }
   };
 
-  const {formatMessage} = useIntl();
-  const placeholderMessageMark = formatMessage({ id: 'enter.mark', defaultMessage: 'Enter mark...' });
-  const placeholderMessagePrice = formatMessage({ id: 'enter.price', defaultMessage: 'Enter price...' });
-  const placeholderMessageYear = formatMessage({ id: 'enter.year', defaultMessage: 'Enter year...' });
-  const placeholderMessageRating = formatMessage({ id: 'enter.rating', defaultMessage: 'Enter rating...' });
-  
+  const { formatMessage } = useIntl();
+  const placeholderMessageMark = formatMessage({
+    id: 'enter.mark',
+    defaultMessage: 'Enter mark...',
+  });
+  const placeholderMessagePrice = formatMessage({
+    id: 'enter.price',
+    defaultMessage: 'Enter price...',
+  });
+  const placeholderMessageYear = formatMessage({
+    id: 'enter.year',
+    defaultMessage: 'Enter year...',
+  });
+  const placeholderMessageRating = formatMessage({
+    id: 'enter.rating',
+    defaultMessage: 'Enter rating...',
+  });
+
   const handleSubmit = (values) => {
     if (selectedItemId) {
       updateListItem(values);
@@ -121,7 +144,10 @@ export const CustomListModal = ({
                 </InputContainer>
                 <InputContainer>
                   <InputLabel htmlFor="price-input">
-                    <FormattedMessage id="price.label" defaultMessage="Price:" />
+                    <FormattedMessage
+                      id="price.label"
+                      defaultMessage="Price:"
+                    />
                   </InputLabel>
                   <Field
                     as={InputField}
@@ -133,7 +159,7 @@ export const CustomListModal = ({
                 </InputContainer>
                 <InputContainer>
                   <InputLabel htmlFor="year-input">
-                    <FormattedMessage id="year.label" defaultMessage="Price:"/>
+                    <FormattedMessage id="year.label" defaultMessage="Price:" />
                   </InputLabel>
                   <Field
                     as={InputField}
@@ -145,7 +171,10 @@ export const CustomListModal = ({
                 </InputContainer>
                 <InputContainer>
                   <InputLabel htmlFor="rating-input">
-                    <FormattedMessage id="rating.label" defaultMessage="Rating:"/>
+                    <FormattedMessage
+                      id="rating.label"
+                      defaultMessage="Rating:"
+                    />
                   </InputLabel>
                   <Field
                     as={InputField}
@@ -157,12 +186,17 @@ export const CustomListModal = ({
                 </InputContainer>
                 <CreateUpdateButton type="submit">
                   {selectedItemId ? (
-                    <FormattedMessage id="update.listButton" defaultMessage="Update List" />
+                    <FormattedMessage
+                      id="update.listButton"
+                      defaultMessage="Update List"
+                    />
                   ) : (
-                    <FormattedMessage id="create.listButton" defaultMessage="Create List" />
+                    <FormattedMessage
+                      id="create.listButton"
+                      defaultMessage="Create List"
+                    />
                   )}
                 </CreateUpdateButton>
-
               </Form>
             )}
           </Formik>

@@ -1,12 +1,14 @@
 //myReducer.js
-import {   UPDATE_DATA,
+import {
+  UPDATE_DATA,
   SET_NEW_MARK,
   SET_NEW_PRICE,
   SET_NEW_YEAR,
   SET_NEW_RATING,
   SET_SELECTED_ITEM_ID,
-  SET_IS_MODAL_OPEN, 
-  SET_DATA} from '../actions/actionTypes';
+  SET_IS_MODAL_OPEN,
+  SET_DATA,
+} from '../actions/actionTypes';
 
 const initialState = {
   data: [],
@@ -23,14 +25,14 @@ const myReducer = (state = initialState, action) => {
     case SET_DATA:
       return {
         ...state,
-        data: action.payload
+        data: action.payload,
       };
 
     case UPDATE_DATA:
-      return {  
+      return {
         ...state,
         data: action.payload,
-      };  
+      };
     case SET_NEW_MARK:
       return {
         ...state,

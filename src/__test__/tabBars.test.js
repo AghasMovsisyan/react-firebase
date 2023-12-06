@@ -9,13 +9,13 @@ describe('TabBar', () => {
     render(
       <Router>
         <TabBar openModal={() => {}} />
-      </Router>
+      </Router>,
     );
 
     // Check if the List tab button is rendered
     expect(screen.getByText('List')).toBeInTheDocument();
-      
-    // Check if the Chart tab button is rendered  
+
+    // Check if the Chart tab button is rendered
     expect(screen.getByText('Chart')).toBeInTheDocument();
 
     // Check if the Create List button is rendered
@@ -28,7 +28,7 @@ describe('TabBar', () => {
     render(
       <Router>
         <TabBar openModal={openModalMock} />
-      </Router>
+      </Router>,
     );
 
     // Click the Create List button
@@ -37,5 +37,4 @@ describe('TabBar', () => {
     // Check if openModalMock is called
     expect(openModalMock).toHaveBeenCalled();
   });
-
 });

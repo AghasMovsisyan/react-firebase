@@ -1,9 +1,16 @@
 //CustomLisTable.jsx
-import React, { useState } from "react";
-import { CreateList, CustomTable, ListName, TableCell, TableHeader, TableRow } from "./ListTableStyled";
-import "../../App.css";
-import Pagination from "../Pagination/Pagination";
-import { FormattedMessage } from "react-intl";
+import React, { useState } from 'react';
+import {
+  CreateList,
+  CustomTable,
+  ListName,
+  TableCell,
+  TableHeader,
+  TableRow,
+} from './ListTableStyled';
+import '../../App.css';
+import Pagination from '../Pagination/Pagination';
+import { FormattedMessage } from 'react-intl';
 
 export const CustomListTable = ({
   data,
@@ -14,7 +21,6 @@ export const CustomListTable = ({
   setNewRating,
   openModal,
 }) => {
-
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
   const handlePageChange = ({ selected }) => {
@@ -44,19 +50,34 @@ export const CustomListTable = ({
         <thead>
           <TableRow>
             <TableHeader>
-              <FormattedMessage id="table.id" defaultMessage="Id"></FormattedMessage>
+              <FormattedMessage
+                id="table.id"
+                defaultMessage="Id"
+              ></FormattedMessage>
             </TableHeader>
             <TableHeader>
-              <FormattedMessage id="table.mark" defaultMessage="Mark"></FormattedMessage>
+              <FormattedMessage
+                id="table.mark"
+                defaultMessage="Mark"
+              ></FormattedMessage>
             </TableHeader>
             <TableHeader>
-              <FormattedMessage id="table.price" defaultMessage="Price"></FormattedMessage>
+              <FormattedMessage
+                id="table.price"
+                defaultMessage="Price"
+              ></FormattedMessage>
             </TableHeader>
             <TableHeader>
-              <FormattedMessage id="table.year" defaultMessage="Year"></FormattedMessage>
+              <FormattedMessage
+                id="table.year"
+                defaultMessage="Year"
+              ></FormattedMessage>
             </TableHeader>
             <TableHeader>
-              <FormattedMessage id="table.rating" defaultMessage="Rating"></FormattedMessage>
+              <FormattedMessage
+                id="table.rating"
+                defaultMessage="Rating"
+              ></FormattedMessage>
             </TableHeader>
           </TableRow>
         </thead>

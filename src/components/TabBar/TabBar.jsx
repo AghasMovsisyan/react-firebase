@@ -1,8 +1,15 @@
 //TabBar.jsx
-import React from "react";
-import { Link } from "react-router-dom";
-import { Dropbtn, Dropdown, DropdownButton, DropdownContainer, DropdownContent, Line } from "./TabBarStyled";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import {
+  Dropbtn,
+  Dropdown,
+  DropdownButton,
+  DropdownContainer,
+  DropdownContent,
+  Line,
+} from './TabBarStyled';
+import { FormattedMessage } from 'react-intl';
 
 export const TabBar = ({ setLocale }) => {
   const handleLanguageChange = (locale) => {
@@ -23,10 +30,10 @@ export const TabBar = ({ setLocale }) => {
             <FormattedMessage id="tab.language" defaultMessage="English" />
           </Dropbtn>
           <DropdownContent>
-            <DropdownButton onClick={() => handleLanguageChange("en")}>
+            <DropdownButton onClick={() => handleLanguageChange('en')}>
               English
             </DropdownButton>
-            <DropdownButton onClick={() => handleLanguageChange("arm")}>
+            <DropdownButton onClick={() => handleLanguageChange('arm')}>
               Հայերեն
             </DropdownButton>
           </DropdownContent>
@@ -38,4 +45,3 @@ export const TabBar = ({ setLocale }) => {
 };
 
 export default TabBar;
-

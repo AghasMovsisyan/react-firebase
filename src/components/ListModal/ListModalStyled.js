@@ -1,6 +1,5 @@
 //customListModalStyled.js
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 export const Modal = styled.div`
   display: flex;
@@ -39,7 +38,7 @@ export const InputContainer = styled.div`
 
 export const InputLabel = styled.label`
   margin-bottom: 5px;
-  text-align: left; 
+  text-align: left;
 `;
 
 export const InputField = styled.input`
