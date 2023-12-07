@@ -8,12 +8,12 @@ export const DropdownContainer = styled.div`
 
 export const Dropbtn = styled.button`
   background-color: #fff;
-  color: #333;
+  color: #201e1e;
   padding: 10px;
   font-size: 16px;
   border: none;
   cursor: pointer;
-  height: 39px;
+  height: 37px;
 
   &:hover {
     background-color: #f1f1f1;

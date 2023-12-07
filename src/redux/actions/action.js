@@ -21,7 +21,9 @@ export const fetchData = () => {
         ...doc.data(),
       }));
       dispatch(updateData(data)); // Dispatch action to update Redux store
-    } catch (error) {}
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 };
 

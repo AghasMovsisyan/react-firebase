@@ -128,7 +128,7 @@ export const CustomListModal = ({ isModalOpen, selectedItemId }) => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            {({ errors, touched }) => (
+            {() => (
               <Form>
                 <InputContainer>
                   <InputLabel htmlFor="mark-input">
