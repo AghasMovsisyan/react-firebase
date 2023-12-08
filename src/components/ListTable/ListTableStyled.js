@@ -1,11 +1,11 @@
-// customListStyled.js
+// ListStyled.js
 import styled from 'styled-components';
 
-export const CustomListContainer = styled.div`
+export const ListContainer = styled.div`
   padding: 20px;
 `;
 
-export const CustomTable = styled.table`
+export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
 `;

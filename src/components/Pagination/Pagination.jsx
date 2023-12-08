@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import {
-  CustomSelect,
+  Select,
   ItemsPerPage,
   PaginationContainer,
   PaginationInfo,
@@ -24,11 +24,11 @@ const Pagination = ({
           id="pagination.rows"
           defaultMessage="Rows per page:"
         ></FormattedMessage>
-        <CustomSelect value={itemsPerPage} onChange={handleItemsPerPageChange}>
+        <Select value={itemsPerPage} onChange={handleItemsPerPageChange}>
           <option value={5}>5</option>
           <option value={10}>10</option>
           <option value={15}>15</option>
-        </CustomSelect>
+        </Select>
       </ItemsPerPage>
       <PaginationInfo>
         <FormattedMessage

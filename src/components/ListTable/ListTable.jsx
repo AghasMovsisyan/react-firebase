@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import {
   CreateList,
-  CustomTable,
+  Table,
   ListName,
   TableCell,
   TableHeader,
@@ -12,12 +12,7 @@ import '../../App.css';
 import Pagination from '../Pagination/Pagination';
 import { FormattedMessage } from 'react-intl';
 
-export const CustomListTable = ({
-  data,
-  listData,
-  setSelectedItemId,
-  openModal,
-}) => {
+export const ListTable = ({ data, listData, setSelectedItemId, openModal }) => {
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
   const handlePageChange = ({ selected }) => {
@@ -54,7 +49,7 @@ export const CustomListTable = ({
       <ListName>
         <FormattedMessage id="table.List" defaultMessage="List" />
       </ListName>
-      <CustomTable>
+      <Table>
         <thead>
           <TableRow>
             <TableHeader>
@@ -100,7 +95,7 @@ export const CustomListTable = ({
             </TableRow>
           ))}
         </tbody>
-      </CustomTable>
+      </Table>
       <Pagination
         itemsPerPage={itemsPerPage}
         handleItemsPerPageChange={handleItemsPerPageChange}
@@ -112,4 +107,4 @@ export const CustomListTable = ({
   );
 };
 
-export default CustomListTable;
+export default ListTable;

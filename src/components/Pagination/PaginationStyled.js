@@ -1,4 +1,4 @@
-// customPagination.js
+// Pagination.js
 import styled from 'styled-components';
 
 export const PagniationInfo = styled.div`
@@ -26,7 +26,7 @@ export const ItemsPerPage = styled.div`
   align-items: center;
 `;
 
-export const CustomSelect = styled.select`
+export const Select = styled.select`
   padding: 4px;
   border: 1px solid #bdbdbd;
   border-radius: 4px;

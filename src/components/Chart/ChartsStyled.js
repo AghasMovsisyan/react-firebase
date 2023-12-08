@@ -1,4 +1,4 @@
-// customChartsStyled.js
+// ChartsStyled.js
 import styled from 'styled-components';
 
 export const ChartStyles = styled.div`

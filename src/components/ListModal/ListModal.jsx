@@ -24,7 +24,7 @@ import { listCollectionRef } from '../../services/db';
 import { addDoc, doc, updateDoc } from 'firebase/firestore';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-export const CustomListModal = ({ isModalOpen, selectedItemId }) => {
+export const ListModal = ({ isModalOpen, selectedItemId }) => {
   const newmark = useSelector((state) => state.myReducer.dataToUpdate.mark);
   const newprice = useSelector((state) => state.myReducer.dataToUpdate.price);
   const newyear = useSelector((state) => state.myReducer.dataToUpdate.year);
@@ -199,4 +199,4 @@ export const CustomListModal = ({ isModalOpen, selectedItemId }) => {
   );
 };
 
-export default CustomListModal;
+export default ListModal;
