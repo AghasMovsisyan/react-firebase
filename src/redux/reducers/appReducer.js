@@ -1,4 +1,4 @@
-// myReducer.js
+// appReducer.js
 import {
   UPDATE_DATA,
   SET_SELECTED_ITEM_ID,
@@ -22,7 +22,7 @@ const initialState = {
   },
 };
 
-const myReducer = (state = initialState, action) => {
+const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_DATA:
       return {
@@ -49,4 +49,4 @@ const myReducer = (state = initialState, action) => {
   }
 };
 
-export default myReducer;
+export default appReducer;

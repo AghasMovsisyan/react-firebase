@@ -25,10 +25,12 @@ import { addDoc, doc, updateDoc } from 'firebase/firestore';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 export const ListModal = ({ isModalOpen, selectedItemId }) => {
-  const newmark = useSelector((state) => state.myReducer.dataToUpdate.mark);
-  const newprice = useSelector((state) => state.myReducer.dataToUpdate.price);
-  const newyear = useSelector((state) => state.myReducer.dataToUpdate.year);
-  const newrating = useSelector((state) => state.myReducer.dataToUpdate.rating);
+  const newmark = useSelector((state) => state.appReducer.dataToUpdate.mark);
+  const newprice = useSelector((state) => state.appReducer.dataToUpdate.price);
+  const newyear = useSelector((state) => state.appReducer.dataToUpdate.year);
+  const newrating = useSelector(
+    (state) => state.appReducer.dataToUpdate.rating,
+  );
 
   const initialValues = {
     mark: newmark || '',
