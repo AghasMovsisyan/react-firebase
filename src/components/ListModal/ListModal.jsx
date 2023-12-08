@@ -16,11 +16,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { db } from '../../services/firebase';
 import {
   fetchData,
+  listData,
   setIsModalOpen,
-  setNewMark,
-  setNewPrice,
-  setNewRating,
-  setNewYear,
   setSelectedItemId,
 } from '../../redux/actions/action';
 import { listCollectionRef } from '../../services/db';
@@ -28,10 +25,10 @@ import { addDoc, doc, updateDoc } from 'firebase/firestore';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 export const CustomListModal = ({ isModalOpen, selectedItemId }) => {
-  const newmark = useSelector((state) => state.myReducer.newMark);
-  const newprice = useSelector((state) => state.myReducer.newPrice);
-  const newyear = useSelector((state) => state.myReducer.newYear);
-  const newrating = useSelector((state) => state.myReducer.newRating);
+  const newmark = useSelector((state) => state.myReducer.dataToUpdate.mark);
+  const newprice = useSelector((state) => state.myReducer.dataToUpdate.price);
+  const newyear = useSelector((state) => state.myReducer.dataToUpdate.year);
+  const newrating = useSelector((state) => state.myReducer.dataToUpdate.rating);
 
   const initialValues = {
     mark: newmark || '',
@@ -52,10 +49,14 @@ export const CustomListModal = ({ isModalOpen, selectedItemId }) => {
   const closeModal = () => {
     dispatch(setIsModalOpen(false));
     dispatch(setSelectedItemId(null));
-    dispatch(setNewMark(''));
-    dispatch(setNewPrice(''));
-    dispatch(setNewYear(''));
-    dispatch(setNewRating(''));
+    dispatch(
+      listData({
+        mark: '',
+        price: '',
+        year: '',
+        rating: '',
+      }),
+    );
   };
 
   const createList = async (values) => {
@@ -65,10 +66,6 @@ export const CustomListModal = ({ isModalOpen, selectedItemId }) => {
       year: values.year,
       rating: values.rating,
     });
-    dispatch(setNewMark(''));
-    dispatch(setNewPrice(''));
-    dispatch(setNewYear(''));
-    dispatch(setNewRating(''));
     closeModal();
     dispatch(fetchData());
   };
@@ -82,10 +79,6 @@ export const CustomListModal = ({ isModalOpen, selectedItemId }) => {
         year: values.year,
         rating: values.rating,
       });
-      dispatch(setNewMark(''));
-      dispatch(setNewPrice(''));
-      dispatch(setNewYear(''));
-      dispatch(setNewRating(''));
       closeModal();
       dispatch(fetchData());
     }

@@ -1,4 +1,4 @@
-//CustomLisTable.jsx
+//dsada
 import React, { useState } from 'react';
 import {
   CreateList,
@@ -14,11 +14,8 @@ import { FormattedMessage } from 'react-intl';
 
 export const CustomListTable = ({
   data,
+  listData,
   setSelectedItemId,
-  setNewMark,
-  setNewPrice,
-  setNewYear,
-  setNewRating,
   openModal,
 }) => {
   const [itemsPerPage, setItemsPerPage] = useState(10);
@@ -37,6 +34,17 @@ export const CustomListTable = ({
   const indexOfLastItem = (currentPage + 1) * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  const handleRowClick = (item) => {
+    setSelectedItemId(item.id);
+    openModal();
+    listData({
+      mark: item.mark,
+      price: item.price,
+      year: item.year,
+      rating: item.rating,
+    });
+  };
 
   return (
     <div>
@@ -83,17 +91,7 @@ export const CustomListTable = ({
         </thead>
         <tbody>
           {currentItems.map((item) => (
-            <TableRow
-              key={item.id}
-              onClick={() => {
-                setSelectedItemId(item.id);
-                setNewMark(item.mark);
-                setNewPrice(item.price);
-                setNewYear(item.year);
-                setNewRating(item.rating);
-                openModal();
-              }}
-            >
+            <TableRow key={item.id} onClick={() => handleRowClick(item)}>
               <TableCell>{item.id}</TableCell>
               <TableCell>{item.mark}</TableCell>
               <TableCell>{item.price}</TableCell>

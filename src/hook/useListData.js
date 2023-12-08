@@ -1,4 +1,4 @@
-//userListData.js
+// userListData.js
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData, setIsModalOpen } from '../redux/actions/action';

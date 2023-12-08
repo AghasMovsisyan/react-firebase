@@ -1,4 +1,4 @@
-//customPagination.js
+// customPagination.js
 import styled from 'styled-components';
 
 export const PagniationInfo = styled.div`

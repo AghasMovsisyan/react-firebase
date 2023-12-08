@@ -7,14 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { TabBar } from './components/TabBar/TabBar';
 import { useDispatch } from 'react-redux';
 import { useListData } from './hook/useListData';
-import {
-  setData,
-  setNewMark,
-  setNewPrice,
-  setNewRating,
-  setNewYear,
-  setSelectedItemId,
-} from './redux/actions/action';
+import { listData, setSelectedItemId } from './redux/actions/action';
 import { CustomListTable } from './components/ListTable/ListTable';
 import CustomListModal from './components/ListModal/ListModal';
 import messages_en from './translations/en.json';
@@ -48,11 +41,7 @@ function App() {
                 <CustomListTable
                   data={data}
                   setSelectedItemId={(id) => dispatch(setSelectedItemId(id))}
-                  setNewMark={(value) => dispatch(setNewMark(value))}
-                  setNewPrice={(value) => dispatch(setNewPrice(value))}
-                  setNewYear={(value) => dispatch(setNewYear(value))}
-                  setNewRating={(value) => dispatch(setNewRating(value))}
-                  setData={(value) => dispatch(setData(value))}
+                  listData={(value) => dispatch(listData(value))}
                   openModal={openModal}
                 />
               }

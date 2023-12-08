@@ -7,8 +7,18 @@ import Charts from '../Charts';
 
 describe('Charts Component', () => {
   const testData = [
-    { mark: 'A', price: 100, year: 2020, rating: 4 },
-    { mark: 'B', price: 150, year: 2021, rating: 3 },
+    {
+      mark: 'A',
+      price: 100,
+      year: 2020,
+      rating: 4,
+    },
+    {
+      mark: 'B',
+      price: 150,
+      year: 2021,
+      rating: 3,
+    },
     // Add more test data as needed
   ];
 

@@ -1,4 +1,4 @@
-//customListStyled.js
+// customListStyled.js
 import styled from 'styled-components';
 
 export const CustomListContainer = styled.div`
