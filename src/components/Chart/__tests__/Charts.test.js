@@ -3,7 +3,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl'; // Import IntlProvider from react-intl
-import Charts from '../Charts';
+import { Charts } from '../Charts';
 
 describe('Charts Component', () => {
   const testData = [
@@ -29,10 +29,6 @@ describe('Charts Component', () => {
       </IntlProvider>,
     );
 
-    // Check if the chart title is rendered
-    expect(screen.getByText('Chart')).toBeInTheDocument(); // Update with your actual chart title
+    expect(screen.getByText('Chart')).toBeInTheDocument();
   });
-
-  // Add more tests for specific behavior or rendering of the chart component
-  // For instance, you could test if certain labels or data are present in the chart.
 });

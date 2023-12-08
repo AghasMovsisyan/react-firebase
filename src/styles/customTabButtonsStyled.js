@@ -12,3 +12,5 @@ export const TabButton = styled(Link)`
   cursor: pointer;
   transition: background-color 0.3s;
 `;
+
+export default TabButton;

@@ -1,4 +1,4 @@
-// ListStyled.js
+// ListTableStyled.js
 import styled from 'styled-components';
 
 export const ListContainer = styled.div`

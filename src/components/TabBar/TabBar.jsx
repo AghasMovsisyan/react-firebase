@@ -1,6 +1,7 @@
-//TabBar.jsx
+// TabBar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import {
   Dropbtn,
   Dropdown,
@@ -9,7 +10,6 @@ import {
   DropdownContent,
   Line,
 } from './TabBarStyled';
-import { FormattedMessage } from 'react-intl';
 
 export const TabBar = ({ setLocale }) => {
   const handleLanguageChange = (locale) => {
@@ -39,7 +39,7 @@ export const TabBar = ({ setLocale }) => {
           </DropdownContent>
         </Dropdown>
       </DropdownContainer>
-      <Line></Line>
+      <Line />
     </div>
   );
 };

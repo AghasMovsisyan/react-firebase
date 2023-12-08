@@ -1,5 +1,6 @@
-//dsada
+// ListTable.jsx
 import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import {
   CreateList,
   Table,
@@ -10,7 +11,6 @@ import {
 } from './ListTableStyled';
 import '../../App.css';
 import Pagination from '../Pagination/Pagination';
-import { FormattedMessage } from 'react-intl';
 
 export const ListTable = ({ data, listData, setSelectedItemId, openModal }) => {
   const [itemsPerPage, setItemsPerPage] = useState(10);
@@ -53,34 +53,19 @@ export const ListTable = ({ data, listData, setSelectedItemId, openModal }) => {
         <thead>
           <TableRow>
             <TableHeader>
-              <FormattedMessage
-                id="table.id"
-                defaultMessage="Id"
-              ></FormattedMessage>
+              <FormattedMessage id="table.id" defaultMessage="Id" />
             </TableHeader>
             <TableHeader>
-              <FormattedMessage
-                id="table.mark"
-                defaultMessage="Mark"
-              ></FormattedMessage>
+              <FormattedMessage id="table.mark" defaultMessage="Mark" />
             </TableHeader>
             <TableHeader>
-              <FormattedMessage
-                id="table.price"
-                defaultMessage="Price"
-              ></FormattedMessage>
+              <FormattedMessage id="table.price" defaultMessage="Price" />
             </TableHeader>
             <TableHeader>
-              <FormattedMessage
-                id="table.year"
-                defaultMessage="Year"
-              ></FormattedMessage>
+              <FormattedMessage id="table.year" defaultMessage="Year" />
             </TableHeader>
             <TableHeader>
-              <FormattedMessage
-                id="table.rating"
-                defaultMessage="Rating"
-              ></FormattedMessage>
+              <FormattedMessage id="table.rating" defaultMessage="Rating" />
             </TableHeader>
           </TableRow>
         </thead>

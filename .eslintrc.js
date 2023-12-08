@@ -7,6 +7,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
+    'airbnb',
   ],
   overrides: [
     {
@@ -25,6 +26,13 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'default-param-last': 'off',
+    'eslintdefault-param-last': 'off',
+    'arrow-body-style': 'off',
+    'react/function-component-definition': 'off',
+    'react/jsx-wrap-multilines': 'off',
+    'object-curly-newline': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/prop-types': 'off',
     'prettier/prettier': [
       'warn',

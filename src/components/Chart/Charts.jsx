@@ -1,10 +1,10 @@
-//Charts.jsx
+// Charts.jsx
 import React from 'react';
 import { Line } from 'react-chartjs-2';
+import { useIntl } from 'react-intl';
 import { CategoryScale } from 'chart.js';
 import Chart from 'chart.js/auto';
 import { ChartName, ChartStyles } from './ChartsStyled';
-import { useIntl } from 'react-intl';
 
 // Register the CategoryScale
 Chart.register(CategoryScale);

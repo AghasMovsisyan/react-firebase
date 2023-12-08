@@ -1,7 +1,10 @@
-//CustumListModal.jsx
+// CustumListModal.jsx
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import { FormattedMessage, useIntl } from 'react-intl';
 import * as Yup from 'yup';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { addDoc, doc, updateDoc } from 'firebase/firestore';
 import {
   CloseButton,
   CreateUpdateButton,
@@ -12,7 +15,6 @@ import {
   Modal,
   ModalContent,
 } from './ListModalStyled';
-import { useDispatch, useSelector } from 'react-redux';
 import { db } from '../../services/firebase';
 import {
   fetchData,
@@ -21,8 +23,6 @@ import {
   setSelectedItemId,
 } from '../../redux/actions/action';
 import { listCollectionRef } from '../../services/db';
-import { addDoc, doc, updateDoc } from 'firebase/firestore';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 export const ListModal = ({ isModalOpen, selectedItemId }) => {
   const newmark = useSelector((state) => state.appReducer.dataToUpdate.mark);

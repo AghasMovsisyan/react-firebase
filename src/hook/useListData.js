@@ -27,3 +27,5 @@ export const useListData = () => {
     openModal,
   };
 };
+
+export default useListData;
