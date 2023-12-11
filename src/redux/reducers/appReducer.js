@@ -1,10 +1,6 @@
 // appReducer.js
-import {
-  UPDATE_DATA,
-  SET_SELECTED_ITEM_ID,
-  SET_IS_MODAL_OPEN,
-  LIST_DATA,
-} from '../actions/actionTypes';
+
+import { LIST_DATA, SET_IS_MODAL_OPEN, SET_SELECTED_ITEM_ID, UPDATE_DATA } from '../actions/action';
 
 const initialState = {
   data: [],

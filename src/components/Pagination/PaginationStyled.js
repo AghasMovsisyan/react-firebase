@@ -58,3 +58,20 @@ export const Select = styled.select`
     color: #757575; /* Arrow color */
   }
 `;
+
+export const PageItem = styled.div`
+  margin: 0 4px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+`;
+
+export const StyledPaginationContainer = styled.div`
+  display: flex;
+  list-style: none;
+  padding: 0px 10px;
+  justify-content: right;
+  cursor: pointer;
+  align-items: center;
+`;

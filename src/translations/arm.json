@@ -26,5 +26,9 @@
   "create.listButton": "Գրանցել Ցուցակ",
   "price.labelChart": "Գին",
   "year.labelChart": "Տարիք",
-  "rating.labelChart": "Վարկանիշ"
+  "rating.labelChart": "Վարկանիշ",
+  "validation.markRequired": "Նշումը պարտադիր է",
+  "validation.priceRequired": "Գինը պարտադիր է",
+  "validation.yearRequired": "Տարին պարտադիր է",
+  "validation.ratingRequired": "Վարկանիշը պարտադիր է"
 }

@@ -1,18 +1,11 @@
 // ListTable.jsx
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
-import {
-  CreateList,
-  Table,
-  ListName,
-  TableCell,
-  TableHeader,
-  TableRow,
-} from './ListTableStyled';
+import { CreateList, Table, ListName, TableCell, TableHeader, TableRow } from './ListTableStyled';
 import '../../App.css';
 import Pagination from '../Pagination/Pagination';
 
-export const ListTable = ({ data, listData, setSelectedItemId, openModal }) => {
+export const ListTable = ({ data, openModal }) => {
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
   const handlePageChange = ({ selected }) => {
@@ -31,14 +24,7 @@ export const ListTable = ({ data, listData, setSelectedItemId, openModal }) => {
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
   const handleRowClick = (item) => {
-    setSelectedItemId(item.id);
-    openModal();
-    listData({
-      mark: item.mark,
-      price: item.price,
-      year: item.year,
-      rating: item.rating,
-    });
+    openModal(item);
   };
 
   return (

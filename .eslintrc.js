@@ -29,10 +29,10 @@ module.exports = {
     'default-param-last': 'off',
     'eslintdefault-param-last': 'off',
     'arrow-body-style': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/function-component-definition': 'off',
     'react/jsx-wrap-multilines': 'off',
     'object-curly-newline': 'off',
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/prop-types': 'off',
     'prettier/prettier': [
       'warn',

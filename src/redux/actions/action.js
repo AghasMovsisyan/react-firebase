@@ -1,12 +1,11 @@
 // actions.js
 import { getDocs, collection } from '@firebase/firestore';
 import { db } from '../../services/firebase';
-import {
-  LIST_DATA,
-  SET_IS_MODAL_OPEN,
-  SET_SELECTED_ITEM_ID,
-  UPDATE_DATA,
-} from './actionTypes';
+
+export const UPDATE_DATA = 'UPDATE_DATA';
+export const SET_SELECTED_ITEM_ID = 'SET_SELECTED_ITEM_ID';
+export const SET_IS_MODAL_OPEN = 'SET_IS_MODAL_OPEN';
+export const LIST_DATA = 'LIST_DATA';
 
 export const updateData = (data) => ({
   type: UPDATE_DATA,
@@ -16,11 +15,6 @@ export const updateData = (data) => ({
 export const listData = (dataToUpdate) => ({
   type: LIST_DATA,
   payload: dataToUpdate,
-});
-
-export const setSelectedItemId = (itemId) => ({
-  type: SET_SELECTED_ITEM_ID,
-  payload: itemId,
 });
 
 export const setIsModalOpen = (isOpen) => ({

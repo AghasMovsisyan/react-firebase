@@ -26,5 +26,9 @@
   "create.listButton": "Create List",
   "price.labelChart": "Price",
   "year.labelChart": "Year",
-  "rating.labelChart": "Rating"
+  "rating.labelChart": "Rating",
+  "validation.markRequired": "Mark is required",
+  "validation.priceRequired": "Price is required",
+  "validation.yearRequired": "Year is required",
+  "validation.ratingRequired": "Rating is required"
 }

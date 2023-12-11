@@ -2,7 +2,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FormattedMessage, useIntl } from 'react-intl';
-import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { addDoc, doc, updateDoc } from 'firebase/firestore';
 import {
@@ -16,41 +15,29 @@ import {
   ModalContent,
 } from './ListModalStyled';
 import { db } from '../../services/firebase';
-import {
-  fetchData,
-  listData,
-  setIsModalOpen,
-  setSelectedItemId,
-} from '../../redux/actions/action';
+import { fetchData, listData, setIsModalOpen } from '../../redux/actions/action';
 import { listCollectionRef } from '../../services/db';
+import { getDataToUpdate, getFormattedData } from '../../selectors/dataSelectors';
+import listValidationSchema from './validation/validationSchemas';
+import placeholderMessages from './utils/placeholderMessages';
 
 export const ListModal = ({ isModalOpen, selectedItemId }) => {
-  const newmark = useSelector((state) => state.appReducer.dataToUpdate.mark);
-  const newprice = useSelector((state) => state.appReducer.dataToUpdate.price);
-  const newyear = useSelector((state) => state.appReducer.dataToUpdate.year);
-  const newrating = useSelector(
-    (state) => state.appReducer.dataToUpdate.rating,
-  );
-
+  const { formatMessage } = useIntl();
+  const dataToUpdate = useSelector(getDataToUpdate);
+  const { newmark, newprice, newyear, newrating } = getFormattedData(dataToUpdate);
   const initialValues = {
-    mark: newmark || '',
-    price: newprice || '',
-    year: newyear || '',
-    rating: newrating || '',
+    mark: newmark,
+    price: newprice,
+    year: newyear,
+    rating: newrating,
   };
 
-  const validationSchema = Yup.object().shape({
-    mark: Yup.string().required('Mark is required'),
-    price: Yup.number().required('Price is required'),
-    year: Yup.number().required('Year is required'),
-    rating: Yup.number().required('Rating is required'),
-  });
+  const validationSchema = listValidationSchema;
 
   const dispatch = useDispatch();
 
   const closeModal = () => {
     dispatch(setIsModalOpen(false));
-    dispatch(setSelectedItemId(null));
     dispatch(
       listData({
         mark: '',
@@ -86,23 +73,12 @@ export const ListModal = ({ isModalOpen, selectedItemId }) => {
     }
   };
 
-  const { formatMessage } = useIntl();
-  const placeholderMessageMark = formatMessage({
-    id: 'enter.mark',
-    defaultMessage: 'Enter mark...',
-  });
-  const placeholderMessagePrice = formatMessage({
-    id: 'enter.price',
-    defaultMessage: 'Enter price...',
-  });
-  const placeholderMessageYear = formatMessage({
-    id: 'enter.year',
-    defaultMessage: 'Enter year...',
-  });
-  const placeholderMessageRating = formatMessage({
-    id: 'enter.rating',
-    defaultMessage: 'Enter rating...',
-  });
+  const placeholderMessage = {
+    mark: formatMessage(placeholderMessages.mark),
+    price: formatMessage(placeholderMessages.price),
+    year: formatMessage(placeholderMessages.year),
+    rating: formatMessage(placeholderMessages.rating),
+  };
 
   const handleSubmit = (values) => {
     if (selectedItemId) {
@@ -133,22 +109,19 @@ export const ListModal = ({ isModalOpen, selectedItemId }) => {
                     as={InputField}
                     id="mark-input"
                     name="mark"
-                    placeholder={placeholderMessageMark}
+                    placeholder={placeholderMessage.mark}
                   />
                   <ErrorMessage name="mark" component={ErrorMessageStyled} />
                 </InputContainer>
                 <InputContainer>
                   <InputLabel htmlFor="price-input">
-                    <FormattedMessage
-                      id="price.label"
-                      defaultMessage="Price:"
-                    />
+                    <FormattedMessage id="price.label" defaultMessage="Price:" />
                   </InputLabel>
                   <Field
                     as={InputField}
                     id="price-input"
                     name="price"
-                    placeholder={placeholderMessagePrice}
+                    placeholder={placeholderMessage.price}
                   />
                   <ErrorMessage name="price" component={ErrorMessageStyled} />
                 </InputContainer>
@@ -160,36 +133,27 @@ export const ListModal = ({ isModalOpen, selectedItemId }) => {
                     as={InputField}
                     id="year-input"
                     name="year"
-                    placeholder={placeholderMessageYear}
+                    placeholder={placeholderMessage.year}
                   />
                   <ErrorMessage name="year" component={ErrorMessageStyled} />
                 </InputContainer>
                 <InputContainer>
                   <InputLabel htmlFor="rating-input">
-                    <FormattedMessage
-                      id="rating.label"
-                      defaultMessage="Rating:"
-                    />
+                    <FormattedMessage id="rating.label" defaultMessage="Rating:" />
                   </InputLabel>
                   <Field
                     as={InputField}
                     id="rating-input"
                     name="rating"
-                    placeholder={placeholderMessageRating}
+                    placeholder={placeholderMessage.rating}
                   />
                   <ErrorMessage name="rating" component={ErrorMessageStyled} />
                 </InputContainer>
                 <CreateUpdateButton type="submit">
                   {selectedItemId ? (
-                    <FormattedMessage
-                      id="update.listButton"
-                      defaultMessage="Update List"
-                    />
+                    <FormattedMessage id="update.listButton" defaultMessage="Update List" />
                   ) : (
-                    <FormattedMessage
-                      id="create.listButton"
-                      defaultMessage="Create List"
-                    />
+                    <FormattedMessage id="create.listButton" defaultMessage="Create List" />
                   )}
                 </CreateUpdateButton>
               </Form>

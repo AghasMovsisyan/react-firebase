@@ -1,4 +1,5 @@
 // TabBarStyled.js
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const DropdownContainer = styled.div`
@@ -52,6 +53,19 @@ export const Dropdown = styled.div`
   &:hover ${Dropbtn} {
     background-color: #f1f1f1;
   }
+`;
+
+export const TabButton = styled(Link)`
+  text-transform: uppercase;
+  color: #201e1e;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 0;
+  font-size: 16px;
+  font-family: Arial;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: 38px;
 `;
 
 export const Line = styled.hr``;

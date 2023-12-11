@@ -1,6 +1,5 @@
 // TabBar.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import {
   Dropbtn,
@@ -9,6 +8,7 @@ import {
   DropdownContainer,
   DropdownContent,
   Line,
+  TabButton,
 } from './TabBarStyled';
 
 export const TabBar = ({ setLocale }) => {
@@ -18,24 +18,20 @@ export const TabBar = ({ setLocale }) => {
 
   return (
     <div>
-      <Link to="/" className="tab-button">
+      <TabButton to="/">
         <FormattedMessage id="tab.list" defaultMessage="List" />
-      </Link>
-      <Link to="/chart" className="tab-button">
+      </TabButton>
+      <TabButton to="/chart" className="tab-button">
         <FormattedMessage id="tab.chart" defaultMessage="Chart" />
-      </Link>
+      </TabButton>
       <DropdownContainer>
         <Dropdown>
           <Dropbtn>
             <FormattedMessage id="tab.language" defaultMessage="English" />
           </Dropbtn>
           <DropdownContent>
-            <DropdownButton onClick={() => handleLanguageChange('en')}>
-              English
-            </DropdownButton>
-            <DropdownButton onClick={() => handleLanguageChange('arm')}>
-              Հայերեն
-            </DropdownButton>
+            <DropdownButton onClick={() => handleLanguageChange('en')}>English</DropdownButton>
+            <DropdownButton onClick={() => handleLanguageChange('arm')}>Հայերեն</DropdownButton>
           </DropdownContent>
         </Dropdown>
       </DropdownContainer>
